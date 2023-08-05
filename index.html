@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="bg-primary text-white text-center py-4">
+            <h1>Weather Dashboard</h1>
+        </header>
+
+        <div class="row">
+            <!-- City Search -->
+            <div class="col-md-3 py-3" id="citySelectSearch">
+                <div>
+                    <h2>Search for a City:</h2>
+                    <input type="text" class="form-control mb-2" placeholder="City Name">
+                    <button class="btn btn-primary btn-block">Search</button>
+                </div>
+                <div class="mt-3 d-flex flex-column">
+                    <!-- ... (city buttons) ... -->
+                    <button class="btn btn-secondary btn-block mb-2">Atlanta</button>
+                    <button class="btn btn-secondary btn-block mb-2">Denver</button>
+                    <button class="btn btn-secondary btn-block mb-2">Seattle</button>
+                    <button class="btn btn-secondary btn-block mb-2">San Francisco</button>
+                    <button class="btn btn-secondary btn-block mb-2">Orlando</button>
+                    <button class="btn btn-secondary btn-block mb-2">New York</button>
+                    <button class="btn btn-secondary btn-block mb-2">Chicago</button>
+                    <button class="btn btn-secondary btn-block mb-2">Austin</button>
+                </div>
+            </div>
+
+            <!-- Forecast container -->
+            <div class="col-md-8 py-3" id="forecastContainer">
+                <!-- Selected City Today Forecast -->
+                <div class="row" id="selectedCityTodayForecast">
+                    <!-- ... (content for selected city today forecast) ... -->
+                </div>
+
+                <!-- Selected City 5-Day Forecast -->
+                <div class="row" id="selectedCity5DayForecast">
+                    <!-- ... (content for selected city 5-day forecast) ... -->
+                    <div class="col-md-2">
+                        <!-- Card 1 content -->
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Card 2 content -->
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Card 3 content -->
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Card 4 content -->
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Card 5 content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+<script src="assets/js/weatherdashboard.js"></script>
+
+</html
