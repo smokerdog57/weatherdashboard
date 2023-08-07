@@ -1,0 +1,9 @@
+please create an html file and associated css file using bootstrap.  It should have the following requirements:
+
+1. HTML5 file, with links to bootstrap, jQuery and dayjs.
+2. Header positioned at top of page, with blue background. h1 element with text = Weather Dashboard. 
+3. Create div positioned on left side of screen and underneath header, with id=citySelectSearch.
+4. Contained within the itySelectSearch div, will be a new div with id = citySearch. Within this div add an h2 element text = Search for a City.  then add input box with placeholder text = Search for a City. This input box will be used for user to type in city. then add a button with blue background and white text. textcontent = Search.
+5. Also contained within the citSelectSearch div, add a second new div which contains 8 buttons with the following text centered with in the button (each button will have one city name): Atlanta, Denver, Seattle, San Francisco, Orlando, New York, Chicago, Austin. These buttons should have a grey background and white text. 
+6. At the same html indenture level as the citySelectSearch div, add a div which is positioned on the screen under the header and to the right of the citSelectSearch div.  new div id = selectedCityTodayForecast.
+7. At the same html indenture level as the citySelectSearch div, Add a div positioned on the page underneath the div with id=selectedCityTodayForecast. this div will have  id = selectedCity5DayForecast. Contained within this div are 5 side by side cards of equal size with navy blue background and white text.
