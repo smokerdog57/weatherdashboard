@@ -1,8 +1,10 @@
 // Global Variables
-var apiKey = '1a45e27611d90610642cf73d07313c2a';
-var cityName, latitude, longitude;
-var currentDayWeatherArray = [];
-var fiveDayWeatherArray = [];
+const apiKey = '1a45e27611d90610642cf73d07313c2a';
+let cityName ='';
+let latitude ='';
+let longitude ='';
+const currentDayWeatherArray = [];
+const fiveDayWeatherArray = [];
 
 const iconMap = {
     "01d": "fa-sun orange-icon",
@@ -105,7 +107,7 @@ $(document).ready(function (event) {
                     longitude = data[0].lon;
 
                     // Now you have latitude and longitude, use them as needed
-                    fetchWeatherByCoords(latitude, longitude, cityName);
+                    fetchWeatherByCoords(latitude, longitude);
                 } else {
                     console.log('City not found');
                 }
@@ -113,7 +115,7 @@ $(document).ready(function (event) {
             .catch(error => console.error('Error:', error));
     }
 
-    function fetchWeatherByCoords(lat, lon, cityName) {
+    function fetchWeatherByCoords(lat, lon) {
         const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`
 
         fetch(apiUrl)
@@ -145,8 +147,7 @@ $(document).ready(function (event) {
         currentDayWeatherArray.forEach((value, index) => {
             childElements.eq(index).text(value);
         })
-        console.log(`the weather icon code is (line 139): ${currentWeather.weather[0].icon}`);
-
+        
         var icon = currentWeather.weather[0].icon
 
         // call function to display the icon
@@ -159,14 +160,11 @@ $(document).ready(function (event) {
     function displayFiveDay(data) {
         let fiveDayWeather;
         fiveDayWeather = data.daily;
-        console.log(`the data.daily object is (line 153)`, JSON.stringify(data.daily, null, 2));
         const iconCodes = []; // Initialize the iconCodes array outside the loop
         for (let i = 0; i < data.daily.length - 1; i++) {
             const weather5DayIconParent = $(`.5dayForecastDay${i+1}`);
             fiveDayWeather = data.daily[i + 1]; // get day i +1
-            iconCodes[i] = fiveDayWeather.weather[0].icon;
-            console.log(`the fiveDayWeather.icon is (line 158): ${fiveDayWeather.weather[0].icon})`)
-            console.log(`the iconCodes array (line 159) ${i}th element is ${iconCodes[i]}`)
+            iconCodes[i] = fiveDayWeather.weather[0].icon;     
 
             //assign and format weather data to the currentDayWeatherArray for display
             fiveDayWeatherArray[0] = dayjs.unix(fiveDayWeather.dt).format('M/D/YYYY');
@@ -193,11 +191,10 @@ $(document).ready(function (event) {
 
         // Remove any existing <i> elements (commented out or not)
         weatherIconParentEl.find('i').remove();
-        console.log(`icon code is (line 185): ${iconCode}`);
+        
         if (iconMap.hasOwnProperty(iconCode)) {
             const iconClass = iconMap[iconCode];
-            console.log(`iconclass is (line 188:) ${iconClass}`);
-
+           
             // Create a new <i> element with the appropriate class
             const newIconElement = $('<i>', {
                 id: 'weather-icon',
@@ -222,7 +219,6 @@ $(document).ready(function (event) {
     function display5dayWeatherIcons(iconCodes) {
         // Loop through the five forecast days
         for (let i = 1; i <= 5; i++) {
-            console.log(`this is iconCodes (line 214): ${iconCodes}`)
             const cardSelector = `.5dayForecastDay${i}`;
             const weather5DayIconParent = $(cardSelector);
 
@@ -233,7 +229,7 @@ $(document).ready(function (event) {
             weather5DayIconParent.find('i').remove();
 
             const iconCode = iconCodes[i - 1]; // Assuming iconCodes is an array of icon codes
-            console.log(`this is the iconCode set on line 225: ${iconCode}`);
+            
             if (iconMap.hasOwnProperty(iconCode)) {
                 const iconClass = iconMap[iconCode];
 
