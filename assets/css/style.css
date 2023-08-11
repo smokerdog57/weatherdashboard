@@ -32,3 +32,15 @@
     margin: 5px;
     border: solid black;
 }
+
+#weatherIcon {
+    font-size: 2rem;
+    /* Adjust the size of the icon */
+    margin-left: 10px;
+    /* Add space to the right of the icon */
+}
+
+.orange-icon {
+    color: orange;
+    margin-left: 10px; /* Adjust this margin as needed for spacing */
+  }

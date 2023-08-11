@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 
 <body>
     <div class="container-fluid">
@@ -24,46 +26,71 @@
             <div class="col-md-3 py-3" id="citySelectSearch">
                 <div>
                     <h2>Search for a City:</h2>
-                    <input type="text" class="form-control mb-2" placeholder="City Name">
-                    <button class="btn btn-primary btn-block">Search</button>
+                    <input id='customCityInput' type="text" class="form-control mb-2" placeholder="City Name">
+                    <button id="customCity" class="btn btn-primary btn-block">Search</button>
                 </div>
-                <div id="majorCities" class="mt-3 d-flex flex-column">
-                    <!-- ... (city buttons) ... -->
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
-                    <button id="majorCity" class="majorCityButton btn btn-secondary btn-block mb-2"></button>
+                <div id="savedCities" class="mt-3 d-flex flex-column">
+                    <!-- ... (dynamically added city buttons) ... -->
                 </div>
             </div>
 
             <!-- Forecast container -->
-            <div class="col-md-8 py-3" id="forecastContainer">
+            <div class='col-md-8 py-3' id='forecastContainer'>
                 <!-- Selected City Today Forecast -->
-                <div class="row" id="selectedCityTodayForecast">
-                    <!-- ... (content for selected city today forecast) ... -->
+                <div class=row id='selectedCityTodayForecast'>
+                    <!-- ... (placeholder content for today's forecast) ... -->
+                    <!-- <div class="weather-info"> -->
+                    <h2 id="todayCity">Selected City (date/time now)
+                        <i id="weather-icon" class="fas fa-sun orange-icon"></i>
+                    </h2>
+                    <p id='todayTemp'> Temp: -- °F</p>
+                    <p id='todayWind'>Wind: -- MPH</p>
+                    <p id='todayHumidity'>Humidity: --%</p>
                 </div>
 
                 <!-- Selected City 5-Day Forecast -->
-                <div class="row" id="selectedCity5DayForecast">
+                <div class='row' id='selectedCity5DayForecast'>
                     <!-- ... (content for selected city 5-day forecast) ... -->
-                    <div class="col-md-2">
-                        <!-- Card 1 content -->
+                    <h2 id='5dayForecasth2'>5-Day Forecast:</h2>
+                    <div class='5dayForecastDay1 col-md-2'>
+                        <!-- Card 1 placeholder content -->
+                        <h4 id = 'card1'> today+1...</h4>
+                        <i id="weather-icon1" class="fas fa-sun orange-icon"></i>
+                        <p class = "fs-6">Temp: -- °F</p>
+                        <p class = "fs-6">Wind: -- MPH</p>
+                        <p class = "fs-6">Humidity: --%</p>
                     </div>
-                    <div class="col-md-2">
-                        <!-- Card 2 content -->
+                    <div class='5dayForecastDay2 col-md-2'>
+                        <!-- Card 2 placeholder content -->
+                        <h4 id = 'card2'>today+2...</h4>
+                        <i id="weather-icon2" class="fas fa-sun orange-icon"></i>
+                        <p>Temp: -- °F</p>
+                        <p>Wind: -- MPH</p>
+                        <p>Humidity: --%</p>
                     </div>
-                    <div class="col-md-2">
-                        <!-- Card 3 content -->
+                    <div class='5dayForecastDay3 col-md-2'>
+                        <!-- Card 3 placeholder content -->
+                        <h4>today+3...</h4>
+                        <i id="weather-icon3" class="fas fa-sun orange-icon"></i>
+                        <p class="fs-6">Temp: -- °F</p>
+                        <p>Wind: -- MPH</p>
+                        <p>Humidity: --%</p>
                     </div>
-                    <div class="col-md-2">
-                        <!-- Card 4 content -->
+                    <div class='5dayForecastDay4 col-md-2'>
+                        <!-- Card 4 placeholder content -->
+                        <h4>today+4...</h4>
+                        <i id="weather-icon4" class="fas fa-sun orange-icon"></i>                        
+                        <p>Temp: -- °F</p>
+                        <p>Wind: -- MPH</p>
+                        <p>Humidity: --%</p>
                     </div>
-                    <div class="col-md-2">
-                        <!-- Card 5 content -->
+                    <div class='5dayForecastDay5 col-md-2'>
+                        <!-- Card 5 placeholder content -->
+                        <h4>today+5... </h4>
+                        <i id="weather-icon5" class="fas fa-sun orange-icon"></i>          
+                        <p>Temp: -- °F</p>
+                        <p>Wind: -- MPH</p>
+                        <p>Humidity: --%</p>
                     </div>
                 </div>
             </div>
@@ -74,6 +101,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-<script src="assets/js/weatherdashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+<script src="assets/jss/weatherdashboard.js"></script>
 
 </html
