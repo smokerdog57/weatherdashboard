@@ -13,7 +13,16 @@ const iconMap = {
     "10d": "fa-cloud-rain",
     "11d": "fa-bolt",
     "13d": "fa-snowflake",
-    "50d": "fa-smog"
+    "50d": "fa-smog",
+    "01n": "fa-moon orange-icon",   // Clear sky night
+    "02n": "fa-cloud-moon",         // Few clouds night
+    "03n": "fa-cloud",              // Scattered clouds night
+    "04n": "fa-cloud",              // Broken clouds night
+    "09n": "fa-cloud-showers-heavy", // Rain night
+    "10n": "fa-cloud-rain",         // Rain night
+    "11n": "fa-bolt",               // Thunderstorm night
+    "13n": "fa-snowflake",          // Snow night
+    "50n": "fa-smog"                // Mist night
     // Add more mappings for other conditions as needed
 };
 

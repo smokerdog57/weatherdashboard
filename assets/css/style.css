@@ -16,21 +16,21 @@
 }
 
 #forecastContainer {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-#selectedCityTodayForecast,
-#selectedCity5DayForecast {
+#selectedCityTodayForecast {
     margin-top: 20px;
     border: solid black;
+    
 }
 
 #selectedCity5DayForecast .col-md-2 {
+    margin-top: 20px;
     background-color: navy;
     color: white;
     padding: 10px;
-    margin: 5px;
-    border: solid black;
+    margin: 15px;
 }
 
 #weatherIcon {
